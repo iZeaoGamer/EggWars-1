@@ -108,7 +108,7 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
    }
   }
  }
- public function onTranslateMessages() {
+ public function translateMessages() {
   
   $mcfg = Config($this->getDataFolder()."messages.yml");
   
@@ -120,8 +120,16 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
   $mcfg->set("msg.teamjoin.two", " team");
  }
  
- public function onJoinTeam() {
+ public function joinTeam() {
   $tjo = $this->getConfig()->get("msg.teamjoin.one");
   $tht = $this->getConfig()->get("msg.teamjoin.two");
+ }
+ 
+ public function messageFormat() {
+  
+  $player = $event->getName();
+  $message = $event->getMessage();
+  
+   $event->setFormat(C::YELLOW . $player . C::BLACK . " : " . C::GOLD . $message);
  }
 }
