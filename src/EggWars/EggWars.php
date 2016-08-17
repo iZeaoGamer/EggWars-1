@@ -177,6 +177,10 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
   }
  }
  
+ public function getPrefixFromConfig() {
+  $prefix = $this->getConfig()->get("Prefix");
+ }
+ 
  
  /*public function joinTeam() {
   $player = $event->getName();
