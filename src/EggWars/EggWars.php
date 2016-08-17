@@ -185,7 +185,7 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
   if()
  }*/
  
- public function messageFormat() {
+ public function messageFormat(PME $event) {
   
   $player = $event->getName();
   $message = $event->getMessage();
