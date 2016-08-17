@@ -1,5 +1,7 @@
 <?php
+
 namespace EggWars;
+
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\utils\TextFormat as C;
@@ -10,12 +12,21 @@ use pocketmine\utils\Config;
 use pocketmine\math\Vector3;
 use pocketmine\block\Block;
 use pocketmine\item\Item;
+use pocketmine\event\player\PlayerMessageEvent as PME;
+
 class EggWars extends PluginBase implements Listener {
+ 
 public $prefix = C::DARK_AQUA . "[EggWars]";
-public function onEnable(){
+private $tpx;
+private $tc;
+public $team;
+
+public function onEnable() {
+ 
  $this->getServer->getPluginManager->registerEvents($this, $this)
  $this->getLogger->info("EggWars enabled");
  $this->saveDefaultConfig();
+ 
  $mcfg = new Config($this->getDataFolder()."messages.yml, Config::YAML");
 }
 public function onDisable(){
@@ -118,12 +129,61 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
   $mcfg->set("msg.eggbroke", "egg was been broke");
   $mcfg->set("msg.teamjoin.one", "you are in ");
   $mcfg->set("msg.teamjoin.two", " team");
+  $mcfg->set("team-blue-name", "Blue");
+  $mcfg->set("team-red-name", "Red");
+  $mcfg->set("team-yellow-name", "Yellow");
+  $mcfg->set("team-green-name", "Green");
  }
  
- public function joinTeam() {
+ public function translateColors($team) {
+  
+  $blue = $this->getConfig()->get("team-blue-name");
+  $red = $this->getConfig()->get("team-red-name");
+  $yellow = $this->getConfig()->get("team-yellow-name");
+  $green = $this->getConfig()->get("team-green-name");
+  
+  if $team = $blue {
+   $tc = "Â§9";
+  }
+  elseif $team = $red {
+   $tc = "Â§c"
+  }
+  elseif $team = $yellow {
+   $tc = "Â§e"
+  }
+  elseif $team = $green {
+   $tc = "Â§a"
+  }
+ }
+ 
+ public function teamPrefix($team) {
+  
+  $blue = $this->getConfig()->get("team-blue-name");
+  $red = $this->getConfig()->get("team-red-name");
+  $yellow = $this->getConfig()->get("team-yellow-name");
+  $green = $this->getConfig()->get("team-green-name");
+  
+  if $team = $blue {
+   $tpx = C::GRAY . "[" . $tc . $this->getConfig()->get("team-blue-name") . C::GRAY . "]" . C::DARK_GRAY;
+  }
+  elseif $team = $red {
+   $tpx = C::GRAY . "[" . $tc . $this->getConfig()->get("team-red-name") . C::GRAY . "]" . C::DARK_GRAY;
+  }
+  elseif $team = $yellow {
+   $tpx = C::GRAY . "[" . $tc . $this->getConfig()->get("team-yellow-name") . C::GRAY . "]" . C::DARK_GRAY;
+  }
+  elseif $team = $green {
+   $tpx = C::GRAY . "[" . $tc . $this->getConfig()->get("team-red-name") . C::GRAY . "]" . C::DARK_GRAY;
+  }
+ }
+ 
+ 
+ /*public function joinTeam() {
+  $player = $event->getName();
   $tjo = $this->getConfig()->get("msg.teamjoin.one");
   $tht = $this->getConfig()->get("msg.teamjoin.two");
- }
+  if()
+ }*/
  
  public function messageFormat() {
   
