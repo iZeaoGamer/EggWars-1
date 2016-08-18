@@ -53,7 +53,7 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
  } else {
   $sender->sendMessage(C::GOLD . "<><><><><><><><><><><>");
   $sender->sendMessage(C::GOLD . "EggWars Commands");
-  $sender->sendMessage(C::GOLD . /*"- /ew join"*/);
+  //$sender->sendMessage(C::GOLD . /*"- /ew join"*/);
   $sender->sendMessage(C::GOLD . "<><><><><><><><><><><>");
  }
  case "addarena":
