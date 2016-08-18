@@ -46,7 +46,7 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
    $sender->sendMessage(C::GOLD . "<><><><><><><><><><>");
    $sender->sendMessage(C::GOLD . "EggWars Commands");
    $sender->sendMessage(C::GOLD . "- /ew addarena");
-   $sender->sendMessage(C::GOLD . "- /ew regsign")
+   $sender->sendMessage(C::GOLD . "- /ew regsign");
    $sender->sendMessage(C::GOLD . "<><><><><><><><><><>");
    return;
    
@@ -87,9 +87,9 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
  case "regsign":
   if(!sender->hasPermission("ew.cmd.regsign")) {
   $sender->sendMessage("use /ew regsign <JoinSign|TeamSign> <Arena>");
-  $sender->sendMessage("stand to x, y, z sign")
+  $sender->sendMessage("stand to x, y, z sign");
   if($args[2]=="TeamSign") {
-   $sender->sendMessage("use /ew regsign <TeamSign> <Arena> <Team>")
+   $sender->sendMessage("use /ew regsign <TeamSign> <Arena> <Team>");
    if($args[3]==null) {
     return false;
    } else {
@@ -150,13 +150,13 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
    $tc = "Â§9";
   }
   elseif $team = $red {
-   $tc = "Â§c"
+   $tc = "Â§c";
   }
   elseif $team = $yellow {
-   $tc = "Â§e"
+   $tc = "Â§e";
   }
   elseif $team = $green {
-   $tc = "Â§a"
+   $tc = "Â§a";
   }
  }
  
