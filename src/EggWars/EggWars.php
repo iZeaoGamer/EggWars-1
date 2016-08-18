@@ -16,14 +16,14 @@ use pocketmine\event\player\PlayerMessageEvent as PME;
 
 class EggWars extends PluginBase implements Listener {
  
-public $prefix = C::DARK_AQUA . "[EggWars]";
+public $prefix;
 private $tpx;
 private $tc;
 public $team;
 
 public function onEnable() {
  
- $this->getServer->getPluginManager->registerEvents($this, $this)
+ $this->getServer->getPluginManager->registerEvents($this, $this);
  $this->getLogger->info("EggWars enabled");
  $this->saveDefaultConfig();
  
@@ -33,12 +33,14 @@ public function onDisable(){
  $this->getLogger->info("EggWars disabled");
 }
 public function onCommand(CommandSender $sender, Command $cmd, $label, array $args) {
- if(!$sender instanceof Player) {
-  return;
- }
- switch(strotolower($args[0]=="EggWars")) {
-  $sender->sendMessage("Use /ew help");
-  return;
+ 
+  if(strotolower($cmd->getName()) == "EggWars") {
+   if(isset($args[0])) {
+    if($sender instanceof Player) {
+     switch(strtolower($args[0])) {
+  default:
+   $sender->sendMessage("Use /ew help");
+    return;
   case "help":
    if(!$sender->hasPermission("ew.cmd.ophelp")) {
    $sender->sendMessage(C::GOLD . "<><><><><><><><><><>");
@@ -114,8 +116,10 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
      $sender->sendMessage("- Plugin created by GamakCZ");
      $sender->sendMessage("- Download on: bit.do/gamcz");
      $sender->sendMessage("***************************");
-     
      break;
+      }
+     }
+    }
    }
   }
  }
