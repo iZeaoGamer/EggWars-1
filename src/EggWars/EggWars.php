@@ -12,7 +12,7 @@ use pocketmine\utils\Config;
 use pocketmine\math\Vector3;
 use pocketmine\block\Block;
 use pocketmine\item\Item;
-use pocketmine\event\player\PlayerMessageEvent as PME;
+use pocketmine\event\player\PlayerChatEvent as PME;
 
 class EggWars extends PluginBase implements Listener {
  
