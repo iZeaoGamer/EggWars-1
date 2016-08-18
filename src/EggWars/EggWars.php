@@ -110,7 +110,7 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
    }
    
    case "info":
-    if(!sender->hasPermission("ew.cmd.info")) {
+    if(!$sender->hasPermission("ew.cmd.info")) {
      $sender->sendMessage("***************************");
      $sender->sendMessage("- Plugin created by GamakCZ");
      $sender->sendMessage("- Download on: bit.do/gamcz");
