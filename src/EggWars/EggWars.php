@@ -60,16 +60,15 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
   if(!$sender->hasPermission("ew.cmd.addarena")) {
   $sender->sendMessage("use /ew addarena <world> <teams> <playersinteams>");
   if(empty($args[1])){
-   if($args[2]==1, 2, 3, 5, 6, 7, 8, 9) {
+   if($args[2]=="1, 2, 3, 5, 6, 7, 8, 9") {
     $sender->sendMessage("teams must be 2, 3, 4");
    return false;
    }
-    if($args[3]==1,2,3, 5, 6, 7, 8, 9) {
+    if($args[3]=="1, 2, 3, 5, 6, 7, 8, 9") {
      $sender->sendMessage("limit is 4 players");
     }
    $sender->sendMessage("use /ew addarena <world> <teams> <playersinteams>");
-  }
-  else {
+  } else {
    $sender->sendMessage($this->$prefix . "Arena was been saved");
    $sender->sendMessage($this->$prefix . "now register team signs using /ew regsign");
   $wd = $args[1];
