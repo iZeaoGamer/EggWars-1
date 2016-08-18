@@ -138,7 +138,7 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
   $mcfg->set("team-green-name", "Green");
  }
  
- public function translateColors($team) {
+ public function translateColors() {
   
   $blue = $this->getConfig()->get("team-blue-name");
   $red = $this->getConfig()->get("team-red-name");
