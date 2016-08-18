@@ -57,7 +57,7 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
   $sender->sendMessage(C::GOLD . "<><><><><><><><><><><>");
  }
  case "addarena":
-  if(!$sender->hasPermission"ew.cmd.addarena") {
+  if(!$sender->hasPermission("ew.cmd.addarena")) {
   $sender->sendMessage("use /ew addarena <world> <teams> <playersinteams>");
   if(empty($args[1])){
    if($args[2]==1, 2, 3, 5, 6, 7, 8, 9) {
