@@ -84,7 +84,7 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
    }
   } 
  case "regsign":
-  if(!sender->hasPermission("ew.cmd.regsign")) {
+  if(!$sender->hasPermission("ew.cmd.regsign")) {
   $sender->sendMessage("use /ew regsign <JoinSign|TeamSign> <Arena>");
   $sender->sendMessage("stand to x, y, z sign");
   if($args[2]=="TeamSign") {
