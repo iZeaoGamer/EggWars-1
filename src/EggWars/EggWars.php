@@ -30,8 +30,8 @@ public function onEnable() {
  
  $mcfg = new Config($this->getDataFolder()."messages.yml, Config::YAML");
 }
-public function onDisable(){
- $this->getLogger->info("EggWars disabled");
+public function onDisable() {
+ $this->getLogger()->info("EggWars disabled");
 }
 public function onCommand(CommandSender $sender, Command $cmd, $label, array $args) {
  
