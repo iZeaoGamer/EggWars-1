@@ -39,9 +39,7 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
    if(isset($args[0])) {
     if($sender instanceof Player) {
      switch(strtolower($args[0])) {
-  default:
-   $sender->sendMessage("Use /ew help");
-    return;
+      
   case "help":
    if(!$sender->hasPermission("ew.cmd.ophelp")) {
    $sender->sendMessage(C::GOLD . "<><><><><><><><><><>");
