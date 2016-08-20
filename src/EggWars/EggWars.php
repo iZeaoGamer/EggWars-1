@@ -24,8 +24,8 @@ public $team;
 
 public function onEnable() {
  
- $this->getServer->getPluginManager->registerEvents($this, $this);
- $this->getLogger->info("EggWars enabled");
+ $this->getServer()->getPluginManager()->registerEvents($this, $this);
+ $this->getLogger()->info("EggWars enabled");
  $this->saveDefaultConfig();
  
  $mcfg = new Config($this->getDataFolder()."messages.yml, Config::YAML");
