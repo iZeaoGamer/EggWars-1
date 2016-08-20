@@ -146,16 +146,16 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
   $yellow = $this->getConfig()->get("team-yellow-name");
   $green = $this->getConfig()->get("team-green-name");
   
-  if $team = $blue {
+  if($team = $blue) {
    $tc = "Â§9";
   }
-  elseif $team = $red {
+  elseif($team = $red) {
    $tc = "Â§c";
   }
-  elseif $team = $yellow {
+  elseif($team = $yellow) {
    $tc = "Â§e";
   }
-  elseif $team = $green {
+  elseif($team = $green) {
    $tc = "Â§a";
   }
  }
@@ -167,16 +167,16 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
   $yellow = $this->getConfig()->get("team-yellow-name");
   $green = $this->getConfig()->get("team-green-name");
   
-  if $team = $blue {
+  if($team = $blue) {
    $tpx = C::GRAY . "[" . $tc . $this->getConfig()->get("team-blue-name") . C::GRAY . "]" . C::DARK_GRAY;
   }
-  elseif $team = $red {
+  elseif($team = $red) {
    $tpx = C::GRAY . "[" . $tc . $this->getConfig()->get("team-red-name") . C::GRAY . "]" . C::DARK_GRAY;
   }
-  elseif $team = $yellow {
+  elseif($team = $yellow) {
    $tpx = C::GRAY . "[" . $tc . $this->getConfig()->get("team-yellow-name") . C::GRAY . "]" . C::DARK_GRAY;
   }
-  elseif $team = $green {
+  elseif($team = $green) {
    $tpx = C::GRAY . "[" . $tc . $this->getConfig()->get("team-red-name") . C::GRAY . "]" . C::DARK_GRAY;
   }
  }
