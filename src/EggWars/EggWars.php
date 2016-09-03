@@ -201,10 +201,10 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
  
  public function onInteract(PIE $e, $blue, $yellow, $green, $red) {
   $block = $e->getBlock();
-  $p = $e->getName();
-  $tile = $e->getTile();
-  $mcfg = new Config($this->getDataFolder()."messages.yml");
-  
+  $p = $e->getPlayer();
+  $tile = $p->getLevel()->getTile();
+  $text = $tile->getText();
+  $this->Config = new Config($this->getDataFolder()."messages.yml");
   
   /*
   $mcfg->set("msg.teamjoin.one", "you are in ");
@@ -213,15 +213,9 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
   
   if($block instanceof Sign)
   {
-   if($tile[0]=="EW")
+   if($BlueSign=="true")
    {
-    if($tile[1]=="joinsign")
-    {
-     if($tile[2]==$blue)
-     {
-      $p->sendMessage($this->getConfig()->get("msg.temjoin.one"))
-     }
-    }
+    $config->
    }
    
   }
