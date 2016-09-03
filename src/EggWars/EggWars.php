@@ -14,6 +14,7 @@ use pocketmine\block\Block;
 use pocketmine\item\Item;
 use pocketmine\event\player\PlayerChatEvent as PME;
 use pocketmine\event\player\PlayerKickEvent;
+use pocketmine\event\player\PlayerInteractEvent as PIE;
 
 class EggWars extends PluginBase implements Listener {
  
@@ -21,6 +22,10 @@ public $prefix;
 private $tpx;
 private $tc;
 public $team;
+private $blue;
+private $red;
+private $yellow;
+private $green;
 
 public function onEnable() {
  
@@ -186,18 +191,39 @@ public function onCommand(CommandSender $sender, Command $cmd, $label, array $ar
  }
  
  
- /*public function joinTeam() {
-  $player = $event->getName();
-  $tjo = $this->getConfig()->get("msg.teamjoin.one");
-  $tht = $this->getConfig()->get("msg.teamjoin.two");
-  if()
- }*/
- 
  public function messageFormat(PME $event) {
   
   $player = $event->getName();
   $message = $event->getMessage();
   
    $event->setFormat(C::YELLOW . $player . C::BLACK . " : " . C::GOLD . $message);
+ }
+ 
+ public function onInteract(PIE $e, $blue, $yellow, $green, $red) {
+  $block = $e->getBlock();
+  $p = $e->getName();
+  $tile = $e->getTile();
+  $mcfg = new Config($this->getDataFolder()."messages.yml");
+  
+  
+  /*
+  $mcfg->set("msg.teamjoin.one", "you are in ");
+  $mcfg->set("msg.teamjoin.two", " team");
+  */
+  
+  if($block instanceof Sign)
+  {
+   if($tile[0]=="EW")
+   {
+    if($tile[1]=="joinsign")
+    {
+     if($tile[2]==$blue)
+     {
+      $p->sendMessage($this->getConfig()->get("msg.temjoin.one"))
+     }
+    }
+   }
+   
+  }
  }
 }
