@@ -4,12 +4,7 @@ main: EggWars\EggWars
 description: EggWars MiniGame
 author: GamakCZ
 website: bit.do/gamcz
-
-api:
-- 1.13.0
-- 1.8.0
-- 2.0.0
-- 3.0.1
+api: 3.0.1
 
 commands:
   EggWars:
